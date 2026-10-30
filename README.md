@@ -1,3 +1,9 @@
+<!-- badges -->
+[![Node](https://img.shields.io/badge/Node.js-≥18-339933?logo=node.js&logoColor=white)](https://nodejs.org)
+[![Zero-Deps](https://img.shields.io/badge/dependencies-zero-0f9d58?logo=npm&logoColor=white)](https://www.npmjs.com/)
+[![License](https://img.shields.io/github/license/huanweide/typedoctor)](LICENSE)
+<!-- /badges -->
+
 # typedoctor
 
 零依赖类型健康体检 CLI。检查 TypeScript / JavaScript 项目里的「类型纪律坏味道」—— 显式 `any` 注解、类型强转、绕过类型检查的指令注释、双重强转，给出 0–100 健康分，可直接挂进 CI 当类型纪律门禁。
@@ -5,6 +11,11 @@
 > 一句话：代码里 `any` 泛滥、随手 `as any`、`@ts-ignore` 一盖了之 —— 这些悄悄掏空类型系统的习惯，typedoctor 一条命令扫出来。
 
 零依赖单文件（仅 Node 内置模块），开箱即用，不联网、不执行你的代码。
+
+## 谁该用 / 谁先别用
+
+- **该用**：TypeScript / JavaScript 团队想量化「any 密度」；想在 pre-commit / CI 里拦住「类型腐败」扩散；没配 ESLint 的小项目想零成本上手。
+- **先别用**：已经用 `@typescript-eslint/no-explicit-any` 且 full strict 全覆盖的团队（收益重叠）；纯 JavaScript、完全没有类型注解的项目（`any` 体检意义不大）。
 
 ## 为什么需要它
 
@@ -78,6 +89,14 @@ git 层四件套（repodoctor / docdoctor / commitdoctor / reldoctor）覆盖仓
 - 健壮：自动跳过 `node_modules` / `.git` / `dist` 等目录、`.d.ts` 声明文件、5MB 以上大文件；非 git 目录/坏 JSON 一律降级不崩溃。
 - 降误报：逐字符 tokenizer 剥离注释与字符串（正则字面量感知），`.vue`/`.svelte` 仅萃取 `<script>` 块，`.tsx`/`.jsx` 跳过 `<any>` JSX 误判。
 - 门禁防呆：所有阈值参数经 `Number.isFinite` 校验，非整数直接 `exit 2`，不会静默放行。
+
+## ⭐ 给个 Star
+
+如果 typedoctor 帮你拦住过一次「类型腐败」扩散，欢迎点个 Star ⭐：https://github.com/huanweide/typedoctor
+
+## 作者
+
+由 [huanweide](https://github.com/huanweide) 维护。
 
 ## License
 
