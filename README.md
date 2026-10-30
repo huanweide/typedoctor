@@ -5,6 +5,7 @@
 <!-- /badges -->
 
 # typedoctor
+> **English** · [README_EN.md](./README_EN.md)
 
 零依赖类型健康体检 CLI。检查 TypeScript / JavaScript 项目里的「类型纪律坏味道」—— 显式 `any` 注解、类型强转、绕过类型检查的指令注释、双重强转，给出 0–100 健康分，可直接挂进 CI 当类型纪律门禁。
 
